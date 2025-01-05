@@ -1,11 +1,20 @@
+from mongomock import MongoClient
 import os
 
 
-class DevConfig():
+class DevConfig:
 
     MONGODB_SETTINGS = {
-            "db": os.getenv('MONGO_DB'),
-            "host": os.getenv('MONGO_HOST'),
-            "username": os.getenv('MONGO_USER'),
-            "password": os.getenv('MONGO_PASSWORD')
+        'db': os.getenv('MONGODB_DB'),
+        'host': os.getenv('MONGODB_HOST'),
+        'username': os.getenv('MONGODB_USERNAME'),
+        'password': os.getenv('MONGODB_PASSWORD')
+    }
+
+
+class MockConfig:
+
+    MONGODB_SETTINGS = {
+        'db': 'users',
+        'mongo_client_class': MongoClient
     }
